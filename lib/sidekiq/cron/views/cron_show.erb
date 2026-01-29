@@ -1,3 +1,4 @@
+<% style_tag "cron/stylesheets/ext.css" %>
 <section>
   <header>
     <div>
@@ -7,7 +8,7 @@
       </h2>
     </div>
     <% cron_job_path = "#{root_path}cron/namespaces/#{@current_namespace}/jobs/#{CGI.escape(@job.name).gsub('+', '%20')}" %>
-    <div class="filter buttons-row">
+    <div class="filter buttons-row header-acts">
       <form action="<%= cron_job_path %>/enqueue?redirect=<%= cron_job_path %>"  method="post">
         <%= csrf_tag %>
         <input class="btn btn-primary" name="enqueue" type="submit" value="<%= t('EnqueueNow') %>" data-confirm="<%= t('AreYouSureEnqueueCronJob', :job => @job.name) %>" />

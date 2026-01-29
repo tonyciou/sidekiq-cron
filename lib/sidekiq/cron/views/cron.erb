@@ -1,3 +1,4 @@
+<% style_tag "cron/stylesheets/ext.css" %>
 <section>
   <header>
     <h2>
@@ -72,7 +73,7 @@
                 <small><%= job.cron.gsub(" ", "&nbsp;") %></small></b></td>
             <td class="<%= klass %>"><%= job.last_enqueue_time ? relative_time(job.last_enqueue_time) : "-" %></td>
             <td class="<%= klass %>">
-              <div class="pagination" style="padding: 0px">
+              <div class="pagination buttons-act">
                 <form action="<%= root_path %>cron/namespaces/<%= job.namespace %>/jobs/<%= escaped_job_name %>/enqueue" method="post">
                   <%= csrf_tag %>
                   <input class='btn btn-warn' type="submit" name="enqueue" value="<%= t('EnqueueNow') %>" data-confirm="<%= t('AreYouSureEnqueueCronJob', :job => job.name) %>"/>

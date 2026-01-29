@@ -10,6 +10,8 @@ if defined?(Sidekiq::Web)
         name: "cron", # the name of the extension, used to namespace assets
         tab: "Cron", # labels(s) of the UI tabs
         index: "cron", # index route(s) for each tab
+        root_dir: File.expand_path("web", File.dirname(__FILE__)),
+        asset_paths: ["stylesheets"]
       )
     end
   elsif Gem::Version.new(Sidekiq::VERSION) >= Gem::Version.new('7.3.0')
