@@ -20,6 +20,8 @@ if defined?(Sidekiq::Web)
       name: "cron", # the name of the extension, used to namespace assets
       tab: "Cron", # labels(s) of the UI tabs
       index: "cron", # index route(s) for each tab
+      root_dir: File.expand_path("web", File.dirname(__FILE__)),
+      asset_paths: ["stylesheets"]
     )
   else
     Sidekiq::Web.register Sidekiq::Cron::WebExtension
